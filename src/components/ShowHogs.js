@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
 import ShowHog from './ShowHog'
 class ShowHogs extends Component {
-  // renderHogPic = (name)=>{
-  //   // console.log(name.toLowerCase().split(" ").join("_"));
-  //   let path = "./src/hog-imgs/" + name.toLowerCase().split(" ").join("_") + ".jpg"
-  //   return <img src={require(path)}/>
-  // }
-  clickHog = (e)=>{
-    // var target = e.target;
-    // var parent = target.parentElement;
-    // console.log(parent.key);
-    console.log(e);
-  }
   renderHogs = ()=>{
-    // return <p>renderHogs</p>
-    // let imgpathfunction =   this.renderHogPic
-    // console.log(imgpathfunction);
     return this.props.hogs.map((hog)=>{
-      // return <li onClick={this.clickHog} key={hog.name}><h2>{hog.name}</h2>
-      //     <img src={require('../hog-imgs/' + hog.name.toLowerCase().split(" ").join("_") + '.jpg')} alt={hog.name}/>
-      //     </li>
       return <ShowHog key={hog.name} hog={hog}/>
     })//map
   }//renderHogs
-  // <img src={require({"../hog-imgs/" + hog.name.toLowerCase().split(" ").join("_") + ".jpg"})}/> //works
-  // <img src={imgpath)}/> //
-  // <img src={require(`${myImg}`)} />
   render(){
-    console.log("ShowHogs");
-    console.log(this.props.hogs);
-
     return(
       <div id="listOfHogs">
         <p>ShowHogs</p>

@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 class Selector extends Component {
-  // handleSelect=(e)=>{
-  //   console.log(e.target.value);
-  // }
-  //now being passed in by props
 
   render(){
 

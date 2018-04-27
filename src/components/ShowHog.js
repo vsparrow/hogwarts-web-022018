@@ -3,7 +3,6 @@ import ShowHogDetails from './ShowHogDetails'
 class ShowHog extends Component {
   state = { show: false}
   clickHog=()=>{
-    console.log("Hog clicked " + this.props.hog.name);
     this.setState({show: !this.state.show})
   }
   render(){

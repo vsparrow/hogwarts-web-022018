@@ -11,27 +11,14 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      // hogs: Hogs
       hogs: [],
       filteredHogs: [],
       filter: ""
-    }
+    }//state
+  }//constructor
 
-
-  }
-
-
-  // < Nav/>
-    // <img src="./src/hog-imgs/porkchop.jpg"/>
   handleSelect=(e)=>{
-    // console.log(e.target.value);
-    this.setState({filter: e.target.value},()=>{
-      console.log("app.handleSelect");
-      console.log(this.state.filter);
-      //In the callback call render? no
-      //change the state somehow
-      this.hogFilter()
-    })//setState
+    this.setState({filter: e.target.value},()=>{this.hogFilter()})//setState
   }//handleSelect
   hogFilter=()=>{
     let filteredHogs = []
@@ -41,13 +28,9 @@ class App extends Component {
     else { //undefined or all
       filteredHogs = this.state.hogs
     }//end else
-    this.setState({filteredHogs: filteredHogs},()=>{
-      console.log("callback from hogFilter");
-      console.log(this.state.filteredHogs);
-    })
+    this.setState({filteredHogs: filteredHogs},()=>{})
   }//hogFilter
   hogSort=(keyName)=>{
-    console.log("*******************************hogSort:" + keyName);
     let array = [...this.state.hogs]
     array.sort((a,b)=>{
       let keyA = a[keyName]
@@ -59,22 +42,11 @@ class App extends Component {
     return array
   }//hogSort
   componentDidMount(){
-    console.log("Component mounted");
-    //get hogs, add to state
-    // let hogs = this.state.hogs.map((hog)=>{
-    //   return < Hog hog={hog}/>
-    //
-    // })
-    // console.log(Hogs);//this hogs is from the api
     this.setState({hogs: Hogs},()=>{
-      console.log("callback from setState of componentDidMount");
       this.hogFilter()
     })//end setState
-    // console.log(this.state.hogs);
-
   }//componentDidMount
   render() {
-    console.log(this.state.hogs)
     return (
       <div className="App">
       <Selector handleSelect={this.handleSelect}/>
