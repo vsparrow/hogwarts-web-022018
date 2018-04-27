@@ -30,14 +30,14 @@ class App extends Component {
       console.log(this.state.filter);
       //In the callback call render? no
       //change the state somehow
-      
+      this.hogFilter()
     })//setState
   }//handleSelect
   hogFilter=()=>{
     let filteredHogs = []
-    if(this.state.filter === 'weight'){}
-    // else if(this.state.filter === 'name'){}
-    // else if(this.state.filter === 'greased'){}
+    if(this.state.filter === 'weight'){filteredHogs = this.hogSort('weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water')}
+    else if(this.state.filter === 'name'){filteredHogs = this.hogSort("name")}
+    else if(this.state.filter === 'greased'){filteredHogs = this.state.hogs.filter(hog => hog.greased === true)}
     else { //undefined or all
       filteredHogs = this.state.hogs
     }//end else
@@ -45,8 +45,19 @@ class App extends Component {
       console.log("callback from hogFilter");
       console.log(this.state.filteredHogs);
     })
-
   }//hogFilter
+  hogSort=(keyName)=>{
+    console.log("*******************************hogSort:" + keyName);
+    let array = [...this.state.hogs]
+    array.sort((a,b)=>{
+      let keyA = a[keyName]
+      let keyB = b[keyName]
+      if(keyA < keyB) return -1;
+      if(keyA > keyB) return 1;
+      return 0;
+    })
+    return array
+  }//hogSort
   componentDidMount(){
     console.log("Component mounted");
     //get hogs, add to state

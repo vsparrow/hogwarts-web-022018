@@ -5,6 +5,12 @@ class ShowHogs extends Component {
   //   let path = "./src/hog-imgs/" + name.toLowerCase().split(" ").join("_") + ".jpg"
   //   return <img src={require(path)}/>
   // }
+  clickHog = (e)=>{
+    // var target = e.target;
+    // var parent = target.parentElement;
+    // console.log(parent.key);
+    console.log(e);
+  }
   renderHogs = ()=>{
     // return <p>renderHogs</p>
     // let imgpathfunction =   this.renderHogPic
@@ -14,7 +20,7 @@ class ShowHogs extends Component {
       // let imgpath = "../hog-imgs/" + hog.name.toLowerCase().split(" ").join("_") + ".jpg"
       // console.log(imgpath);
       // return <li><h2>{hog.name}</h2> "hog pic here"</li>
-      return <li key={hog.name}><h2>{hog.name}</h2>
+      return <li onClick={this.clickHog} key={hog.name}><h2>{hog.name}</h2>
             <img src={require('../hog-imgs/' + hog.name.toLowerCase().split(" ").join("_") + '.jpg')} alt={hog.name}/>
             </li>
     })//map
