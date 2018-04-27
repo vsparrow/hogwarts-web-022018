@@ -30,6 +30,7 @@ class App extends Component {
       console.log(this.state.filter);
       //In the callback call render? no
       //change the state somehow
+      
     })//setState
   }//handleSelect
   hogFilter=()=>{
